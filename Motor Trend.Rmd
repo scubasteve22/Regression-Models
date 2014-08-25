@@ -12,7 +12,7 @@ The questions posed are:
 - “Is an automatic or manual transmission better for MPG”
 - "Quantify the MPG difference between automatic and manual transmissions"
 
-Throught analysis I have found that whilst manual transmission did appear to have a positive impact on MPG it wasn't the full story as weight and clyinders were the most statistically significant variables and the sample (appendix 4) showed that the manual cars tended to be lighter with less cylinders and there appear more fuel efficient but transmission would need to be further testing.
+Throught analysis I have found that whilst manual transmission did appear to have a positive impact on MPG it wasn't the full story as weight and clyinders were the most statistically significant variables and the sample (appendix 2) showed that the manual cars tended to be lighter with less cylinders and there appear more fuel efficient but transmission would need to be further testing.
 
 #### Regression model to test transmission against MPG
 The use of a boxplot is a great visual tool to understand the relationships in the data and from this one we can see that there is relationship between tranmission and MPG; with manual transmissions getting more fuel efficiency.
@@ -49,19 +49,24 @@ lm <- lm(mpg ~ cyl + wt, data = mtcars)
 summary(lm)
 ```
 
-So in conclusion, cylinders and weight seem to be the biggest influece on MPG but how come we saw such a dramatic impact of transmission at the start?  The final check I have done is in Appendix 4 to better understand the types of car we are looking at.  What we see is that, in our sample, the automatic cards tend to be heavier and have more cylinders and the manuals are lighter and less cylinders, therefore, given our last model we would expect manuals to see better MPG so there is more at play here than simply transmission and would need to test equitable samples to discover more.
+So in conclusion, cylinders and weight seem to be the biggest influece on MPG but how come we saw such a dramatic impact of transmission at the start?  The final check I have done is in Appendix 2 to better understand the types of car we are looking at.  What we see is that, in our sample, the automatic cards tend to be heavier and have more cylinders and the manuals are lighter and less cylinders, therefore, given our last model we would expect manuals to see better MPG so there is more at play here than simply transmission and would need to test equitable samples to discover more.
 
 #### Appendix 1 - Model diagnostics
-``` {r appendix3}
+``` {r appendix1}
 library(ggplot2)
 par(mfrow = c(2, 2))
 plot(analysis)
 ```
 
 #### Appendix 2 - Understanding the cars
-``` {r appendix4}
+``` {r appendix2}
 qplot(cyl, wt, data=mtcars, main="Weight/Cylinders by Transmission (0 - automatic, 1 - manual) ", xlab = "Cylinders", ylab = "Weight (lb/1000)") +
   facet_grid(am ~ .)
+```
+
+#### Appendix 3 - Bivariate plots of variables
+``` {r appendix3}
+pairs(mtcars)
 ```
 
 ##### ScubaSteve22. August 2014.
